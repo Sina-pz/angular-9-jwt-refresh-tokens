@@ -11,6 +11,8 @@ export class AuthGuard implements CanActivate {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+             // The userValue getter in service allows other components an easy way to 
+    // get the value of the currently logged in user without having to subscribe to the user Observab
         const user = this.authenticationService.userValue;
         if (user) {
             // logged in so return true

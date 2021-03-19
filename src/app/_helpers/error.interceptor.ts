@@ -22,3 +22,23 @@ export class ErrorInterceptor implements HttpInterceptor {
         }))
     }
 }
+
+
+// by implementing the HttpInterceptor interface you can create a custom interceptor to catch all error responses from the
+//  server in a single location.
+
+// The Error Interceptor intercepts http responses from the api to check if there were any errors.
+//  If the response is 401 Unauthorized or 403 Forbidden, the user is automatically logged out of the application,
+//   all other errors are logged
+//  to the console and re-thrown up to the calling service so an alert with the error can be displayed in the UI.
+
+
+// old Version
+// return next.handle(request).pipe(catchError( err => {
+//     if (err.status === 401) {
+//         this.authenticatedService.logout();
+//     }
+//         const error = err.error.message || err.statusText;
+//         return throwError(error);
+    
+//  } ));

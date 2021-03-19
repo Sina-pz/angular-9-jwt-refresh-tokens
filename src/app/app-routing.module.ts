@@ -1,3 +1,4 @@
+import { DemoPageComponent } from './../nv-ui-material/demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,8 +9,9 @@ import { AuthGuard } from './_helpers';
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
+    { path: 'demo', component: DemoPageComponent},
 
-    // otherwise redirect to home
+    // otherwise redirect to home 
     { path: '**', redirectTo: '' }
 ];
 

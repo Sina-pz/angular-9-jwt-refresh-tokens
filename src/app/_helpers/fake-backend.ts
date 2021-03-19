@@ -9,10 +9,11 @@ const users = JSON.parse(localStorage.getItem(usersKey)) || [];
 
 // add test user and save if users array is empty
 if (!users.length) {
-    users.push({ id: 1,  firstName: 'Test', lastName: 'User', username: 'test', password: 'test', refreshTokens: [] });
+    users.push({ id: 1, firstName: 'Test', lastName: 'User', username: 'test', password: 'test', refreshTokens: [] });
     localStorage.setItem(usersKey, JSON.stringify(users));
 }
-
+// database old version
+// const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -29,8 +30,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
+                // see if he is true 2- return user with jwtToken: generateJwtToken =>  `fake-jwt-token.${btoa(JSON.stringify(tokenPayload))}`
+                // ok  generateJwtToken => return token = new Date().getTime().toString();
                 case url.endsWith('/users/refresh-token') && method === 'POST':
                     return refreshToken();
+
+                // getRefreshToken from cookie
+                // find if user has this token
+                // delete this old token from token list
+                // generateRefreshToken and push it in tokenList it is valid for 7 day
                 case url.endsWith('/users/revoke-token') && method === 'POST':
                     return revokeToken();
                 case url.endsWith('/users') && method === 'GET':
@@ -38,7 +46,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
-            }    
+                // case url.endsWith('/users/authenticate') && method === 'POST':
+                //     return authenticate();
+                // case url.endsWith('/users') && method === 'GET':
+                //     return getUsers();
+                // default:
+                // pass through any requests not handled above
+                //return next.handle(request);
+            }
         }
 
         // route functions
@@ -46,7 +61,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function authenticate() {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
-            
+
             if (!user) return error('Username or password is incorrect');
 
             // add refresh token to user
@@ -64,11 +79,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function refreshToken() {
             const refreshToken = getRefreshToken();
-            
+            // get refresh token from cookie
+            // cookie: "fakeRefreshToken=1615926245474"
             if (!refreshToken) return unauthorized();
 
             const user = users.find(x => x.refreshTokens.includes(refreshToken));
-            
+
             if (!user) return unauthorized();
 
             // replace old refresh token with a new one and save
@@ -87,10 +103,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function revokeToken() {
             if (!isLoggedIn()) return unauthorized();
-            
+
             const refreshToken = getRefreshToken();
             const user = users.find(x => x.refreshTokens.includes(refreshToken));
-            
+
             // revoke token and save
             user.refreshTokens = user.refreshTokens.filter(x => x !== refreshToken);
             localStorage.setItem(usersKey, JSON.stringify(users));
@@ -116,7 +132,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function unauthorized() {
             return throwError({ status: 401, error: { message: 'Unauthorized' } });
         }
-
+        // The btoa() method encodes a string in base-64.
+        // Use the atob() method to decode a base-64 encoded string.
         function isLoggedIn() {
             // check if jwt token is in auth header
             const authHeader = headers.get('Authorization');
@@ -132,7 +149,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function generateJwtToken() {
             // create token that expires in 15 minutes
-            const tokenPayload = { exp: Math.round(new Date(Date.now() + 15*60*1000).getTime() / 1000) }
+            const tokenPayload = { exp: Math.round(new Date(Date.now() + 15 * 60 * 1000).getTime() / 1000) };
+            // tokenPayload = {exp: 1615928343}
             return `fake-jwt-token.${btoa(JSON.stringify(tokenPayload))}`;
         }
 
@@ -140,7 +158,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             const token = new Date().getTime().toString();
 
             // add token cookie that expires in 7 days
-            const expires = new Date(Date.now() + 7*24*60*60*1000).toUTCString();
+            const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = `fakeRefreshToken=${token}; expires=${expires}; path=/`;
 
             return token;
@@ -148,6 +166,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function getRefreshToken() {
             // get refresh token from cookie
+            // cookie: "fakeRefreshToken=1615926245474"
             return (document.cookie.split(';').find(x => x.includes('fakeRefreshToken')) || '=').split('=')[1];
         }
     }
@@ -159,3 +178,15 @@ export let fakeBackendProvider = {
     useClass: FakeBackendInterceptor,
     multi: true
 };
+
+
+
+// inventory.find(e => e.name === 'apples'); // { name: 'apples', quantity: 2 } 
+
+// The fake backend contains a handleRoute function that checks if the request matches one of the faked routes in the switch statement,
+//  at the moment this includes requests for handling authentication, refreshing tokens, revoking tokens, and getting all users.
+//   Matching requests are intercepted and handled by one of the below 
+  // route functions, non-matching requests are sent through to the real backend by calling next.handle(request);.
+//    Below the route functions there are
+    // helper functions for returning different response types and performing 
+//    other tasks such as generating and validating jwt and refresh tokens.

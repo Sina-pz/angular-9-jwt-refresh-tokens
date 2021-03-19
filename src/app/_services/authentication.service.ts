@@ -10,7 +10,7 @@ import { User } from '@app/_models';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private userSubject: BehaviorSubject<User>;
-    public user: Observable<User>;
+    public  user: Observable<User>;
 
     constructor(
         private router: Router,
@@ -28,7 +28,7 @@ export class AuthenticationService {
         return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password }, { withCredentials: true })
             .pipe(map(user => {
                 this.userSubject.next(user);
-                this.startRefreshTokenTimer();
+                this.startRefreshTokenTimer(); 
                 return user;
             }));
     }

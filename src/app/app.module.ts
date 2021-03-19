@@ -13,13 +13,16 @@ import { JwtInterceptor, ErrorInterceptor, appInitializer } from './_helpers';
 import { AuthenticationService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+// nv-ui-material.module
+import { NvUiMaterialModule } from '@nv-ui-material/nv-ui-material.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NvUiMaterialModule
     ],
     declarations: [
         AppComponent,
@@ -27,7 +30,7 @@ import { LoginComponent } from './login';
         LoginComponent
     ],
     providers: [
-        { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthenticationService] },
+        { provide: APP_INITIALIZER  , useFactory: appInitializer, multi: true, deps: [AuthenticationService] },
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
