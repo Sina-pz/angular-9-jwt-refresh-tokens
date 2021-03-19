@@ -24,9 +24,6 @@ export class DemoPageComponent implements OnInit {
   public onItemClick(selectedItem: EvMaterial): void {
     this.selectedItem = selectedItem;
   }
-  onBottonClick() {
-    console.log('on nv button clicked');
-  }
 
 }
 
