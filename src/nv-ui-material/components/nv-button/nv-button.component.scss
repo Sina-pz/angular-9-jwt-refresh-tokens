@@ -1,0 +1,83 @@
+@import './../../theme/base.scss';
+.nv-button-container {
+
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+ 
+      .label {
+        font-family: $nv-font;
+        font-weight: $font-weight-medium;
+        font-size: $Font-size-large;
+      }
+
+  
+    &.type-basic {
+
+        .label {
+          color: $Font-color-900;
+        }
+
+    }
+  
+    &.type-Raised {
+      border-color: $border-color-100;
+      box-shadow: 0px 1px 1px;
+  
+
+        .label {
+          color: $Font-color-900;
+        }
+
+    }
+  
+    &.type-stroked {
+      border-color: $border-color-100;
+
+        .label {
+          color: $Font-color-900;
+      }
+    }
+  
+    &.theme-color-basic {
+      background: transparent;
+      width: 68px;
+      height: 38px;
+        .label {
+          color: $Font-color-900;
+      }
+    }
+  
+    &.theme-color-primary {
+      background: $Primary-1-900;
+      width: 103px;
+      height: 38px;
+        .label {
+          color: $Font-color-200;
+      }
+    }
+  
+    &.theme-color-secondary {
+      background: $Accent-1-900;
+      width: 103px;
+      height: 38px;
+        .label {
+          color: $Font-color-200;
+      }
+    }
+  
+    &.theme-color-Accent {
+      background: $Stress-2-900;
+      width: 103px;
+      height: 38px;
+        .label {
+          color: $Font-color-200;
+         }
+    }
+  
+  
+  
+  }

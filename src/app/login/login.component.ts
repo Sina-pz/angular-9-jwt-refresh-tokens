@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
+        //
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService
@@ -32,7 +33,12 @@ export class LoginComponent implements OnInit {
         });
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+        // console.log(this.route.snapshot.queryParams['route'] || '*');
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '*';
+        console.log(this.returnUrl);
+        
+        
     }
 
     // convenience getter for easy access to form fields
@@ -60,3 +66,24 @@ export class LoginComponent implements OnInit {
             });
     }
 }
+
+
+// https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/
+// We then learn how to pass the parameters to the route using the routerLink directive. 
+// Finally, we learn how to retrieve the parameters using the ActivatedRoute Service
+// The parameters can be retrieved by either using snapshot method or by subscribe method.
+
+//The ActivatedRoute is a service, which keeps track of the currently activated route associated with the loaded Component.
+
+// Using Snapshot :  this.id=this._Activatedroute.snapshot.paramMap.get("id");
+// Using observable : 
+// this._Activatedroute.paramMap.subscribe(params => { 
+//     this.id = params.get('id'); 
+// });
+
+
+// We usually retrieve the value of the parameter in the ngOninit life cycle hook, when the component initialised.
+
+// When the user navigates to the component again, the Angular does not create the new component but reuses
+//  the existing instance. In such circumstances, the ngOnInit method of the component is not called again.
+//  Hence you need a way to get the value of the parameter.

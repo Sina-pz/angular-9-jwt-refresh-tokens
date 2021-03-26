@@ -1,14 +1,22 @@
 <div class="demo-page-container">
-    <div class="side-menu">
-        <div class="menu-item" (click)="onItemClick(materials.Button)" >
-            Button
-        </div>
-        <div class="menu-item" (click)="onItemClick(materials.Table)" >
-            Table
-        </div>
+  <div class="side-menu">
+    <div class="menu-item" (click)="onItemClick(materials.Button)">
+      Button
     </div>
-    <div class="preview-panel">
-        <app-nv-button label="Primary Button" *ngIf="selectedItem === materials.Button"></app-nv-button>
-        <app-nv-table  *ngIf="selectedItem === materials.Table"></app-nv-table>
+    <div class="menu-item" (click)="onItemClick(materials.ProgressCircle)">
+      ProgressCircle
     </div>
+    <div class="menu-item" (click)="onItemClick(materials.Avatar)">
+      Avatar
+    </div>
+    <div class="menu-item" (click)="onItemClick(materials.Table)">
+      Table
+    </div>
+  </div>
+  <div class="preview-panel">
+    <app-nv-button [label]="label" [type]="type" [color]="color"  *ngIf="selectedItem === materials.Button"></app-nv-button>
+    <app-nv-progress-circle *ngIf="selectedItem === materials.ProgressCircle"
+     [progress1]="progress1" [progress2]="progress2" [radius]="radius"></app-nv-progress-circle>
+    <app-nv-table *ngIf="selectedItem === materials.Table"></app-nv-table>
+  </div>
 </div>

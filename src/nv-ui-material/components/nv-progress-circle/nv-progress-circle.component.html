@@ -1,0 +1,16 @@
+<div class='ev-circle-container'>
+    <svg class="circle-svg">
+  
+      <circle [attr.cx]="(+radius + 2)" [attr.cy]="(+radius + 2)" [attr.r]="(+radius)" [attr.fill]="'none'"
+        [attr.stroke]="'grey'" [attr.stroke-width]="'2px'" [attr.stroke-dasharray]="'360px'" />
+      <circle [attr.transform]="'rotate(' + rotatedStartPoint +', '+ (+radius + 2)+', '+ (+radius + 2)+ ')'"
+        [attr.cx]="(+radius + 2)" [attr.cy]="(+radius + 2)" [attr.r]="radius" [attr.fill]="'none'" [attr.stroke]="'#1FC1C1'"
+        [attr.stroke-width]="'3px'"
+        [attr.stroke-dasharray]=" (progress1 * maximumProgress)+'px' +' '+ (maximumProgress)+'px'" />
+      <circle [attr.transform]="'rotate(' + rotatedStartPoint +', '+ (radius + 2)+', '+ (radius + 2)+ ')'"
+        [attr.cx]="radius + 2" [attr.cy]="radius + 2" [attr.r]="radius" [attr.fill]="'none'" [attr.stroke]="'red'"
+        [attr.stroke-dasharray]=" (progress2 * maximumProgress)+'px' +' '+ (maximumProgress)+'px'"
+        [attr.stroke-width]="'4px'" />
+    </svg>
+  
+  </div>
