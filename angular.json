@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less"
+          "style": "scss"
         }
       },
       "root": "",
@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.scss",
+              "src/nv-ui-material/theme/base.scss"
             ],
             "scripts": []
           },
@@ -92,7 +93,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.scss",
+              "src/nv-ui-material/theme/base.scss"
             ],
             "scripts": []
           }
@@ -123,6 +125,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-9-jwt-refresh-tokens"
+    }
+  },
+  "defaultProject": "angular-9-jwt-refresh-tokens",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }
