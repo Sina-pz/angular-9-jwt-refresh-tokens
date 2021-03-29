@@ -17,11 +17,11 @@
             height: 50px;
             margin: 0 5px;
         }
-
-
     }
 
     .preview-panel {
-
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }

@@ -7,6 +7,8 @@ import { NvProgressCircleComponent } from './components/nv-progress-circle/nv-pr
 import { NvAvatarComponent } from './components/nv-avatar/nv-avatar.component';
 import { NvInitialsPipe } from './pipes/initials/nv-initials.pipe';
 import { NvTrimPipe } from './pipes/trim/nv-trim.pipe';
+import { NvTagComponent } from './components/nv-tag/nv-tag.component';
+import { BackgroundColorDirective } from './directives/background-color.directive';
 
 
 
@@ -18,7 +20,9 @@ import { NvTrimPipe } from './pipes/trim/nv-trim.pipe';
     NvProgressCircleComponent,
     NvAvatarComponent,
     NvInitialsPipe,
-    NvTrimPipe],
+    NvTrimPipe,
+    NvTagComponent,
+    BackgroundColorDirective],
   imports: [
     CommonModule
   ],

@@ -1,5 +1,5 @@
 export enum ButtonType {
-    Basic,
-    Raised,
-    Stroked
+    Basic = "basic",
+    Raised = "raised",
+    Stroked = "stroked"
 }

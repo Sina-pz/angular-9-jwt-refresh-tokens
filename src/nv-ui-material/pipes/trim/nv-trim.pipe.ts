@@ -9,7 +9,7 @@ export class NvTrimPipe implements PipeTransform {
     const threeDots = '...';
     const newValue = text.split(' ');
     if (newValue.length > length) {
-        const splittedValue = text.split(newValue[9]);
+        const splittedValue = text.split(newValue[length]);
         return splittedValue[0].concat(threeDots.toString());
     }
     else {

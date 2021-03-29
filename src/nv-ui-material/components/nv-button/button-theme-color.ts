@@ -1,6 +1,6 @@
 export enum ButtonThemeColor {
-    Basic,
-    Primary,
-    Secondary,
-    Accent
+    Basic =     "basic"    ,
+    Primary =   "primary" ,
+    Secondary = "secondary",
+    Accent =    "accent"
 }

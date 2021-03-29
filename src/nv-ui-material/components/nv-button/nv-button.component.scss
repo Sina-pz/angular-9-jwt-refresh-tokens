@@ -23,9 +23,9 @@
 
     }
   
-    &.type-Raised {
+    &.type-raised {
       border-color: $border-color-100;
-      box-shadow: 0px 1px 1px;
+      box-shadow: 0px 2px 2px;
   
 
         .label {
@@ -43,7 +43,8 @@
     }
   
     &.theme-color-basic {
-      background: transparent;
+      background-color: transparent;
+      border: 1px solid $Primary-1-900;
       width: 68px;
       height: 38px;
         .label {
@@ -53,28 +54,32 @@
   
     &.theme-color-primary {
       background: $Primary-1-900;
+      border-color: $Primary-1-900;
       width: 103px;
       height: 38px;
         .label {
-          color: $Font-color-200;
+          color: $Font-color-800;
+          font-size: $Font-size-small;
       }
     }
   
     &.theme-color-secondary {
       background: $Accent-1-900;
+      border-color: $Accent-1-900;
       width: 103px;
       height: 38px;
         .label {
-          color: $Font-color-200;
+          color: $Font-color-800;
       }
     }
   
-    &.theme-color-Accent {
-      background: $Stress-2-900;
+    &.theme-color-accent {
+      background: $Stress-1-900;
+      border-color: $Stress-1-900;
       width: 103px;
       height: 38px;
         .label {
-          color: $Font-color-200;
+          color: $Font-color-800;
          }
     }
   

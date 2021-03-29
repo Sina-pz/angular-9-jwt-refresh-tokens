@@ -1,4 +1,4 @@
-import { Assignee } from './../../../app/models/models-data/assignee';
+import { Assignee } from '../../../app/_models/assignee';
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface IAssignee {

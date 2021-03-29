@@ -1,0 +1,13 @@
+@import './../../theme/base.scss';
+
+.tag-container {
+
+    font-family: $nv-font;
+    font-size: $Font-size-medium;
+    font-weight: $font-weight-bold;
+    color:  $Stress-1-900;
+    width: 200px;
+    height: 30px;
+    padding: 1px;
+
+}

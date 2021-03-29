@@ -9,14 +9,21 @@
     <div class="menu-item" (click)="onItemClick(materials.Avatar)">
       Avatar
     </div>
+    <div class="menu-item" (click)="onItemClick(materials.Tag)">
+      Tag
+    </div>
     <div class="menu-item" (click)="onItemClick(materials.Table)">
       Table
     </div>
   </div>
   <div class="preview-panel">
-    <app-nv-button [label]="label" [type]="type" [color]="color"  *ngIf="selectedItem === materials.Button"></app-nv-button>
+    <app-nv-button [label]="label" [type]="type" [color]="color"   *ngIf="selectedItem === materials.Button"></app-nv-button>
+    <app-nv-button [label]="label" [type]="type1" [color]="color1"  *ngIf="selectedItem === materials.Button"></app-nv-button>
+    <app-nv-button [label]="label" [type]="type2" [color]="color2"  *ngIf="selectedItem === materials.Button"></app-nv-button>
     <app-nv-progress-circle *ngIf="selectedItem === materials.ProgressCircle"
      [progress1]="progress1" [progress2]="progress2" [radius]="radius"></app-nv-progress-circle>
+     <app-nv-avatar  *ngIf="selectedItem === materials.Avatar" [assignee]="assignee"></app-nv-avatar>
+     <app-nv-tag [text]="text" [color]="tagColor" *ngIf="selectedItem === materials.Tag"></app-nv-tag>
     <app-nv-table *ngIf="selectedItem === materials.Table"></app-nv-table>
   </div>
 </div>

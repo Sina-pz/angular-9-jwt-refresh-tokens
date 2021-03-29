@@ -1,4 +1,4 @@
-<div class='ev-circle-container'>
+<div class="nv-circle-container">
     <svg class="circle-svg">
   
       <circle [attr.cx]="(+radius + 2)" [attr.cy]="(+radius + 2)" [attr.r]="(+radius)" [attr.fill]="'none'"
@@ -12,5 +12,7 @@
         [attr.stroke-dasharray]=" (progress2 * maximumProgress)+'px' +' '+ (maximumProgress)+'px'"
         [attr.stroke-width]="'4px'" />
     </svg>
+
+    <div class="label"> {{progress1 * 100 + '%'}}  </div>
   
   </div>

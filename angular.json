@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/nv-ui-material/theme/base.scss"
+              "src/nv-ui-material/theme/base.scss",
+              "src/ev-ui-material/theme/skin.scss"
             ],
             "scripts": []
           },
