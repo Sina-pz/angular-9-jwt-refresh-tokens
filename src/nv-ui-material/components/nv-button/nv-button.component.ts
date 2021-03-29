@@ -12,16 +12,9 @@ export class NvButtonComponent implements OnInit {
   public buttonTypes: ButtonType;
   @Output() buttonClick: EventEmitter<boolean> = new EventEmitter();
   @Input() public label: string;
-  @Input() public set type(value: ButtonType) {
-    this._type = value;
-    console.log(this.buttonTypes[value]);
-    
-  }
-  public _type: ButtonType;
-  @Input() public set color(value: ButtonThemeColor) {
-    this._color = value;
-  }
-  public _color: ButtonThemeColor;
+  @Input() public type: ButtonType;
+  @Input() public color: ButtonThemeColor;
+
 
   constructor() { }
 
