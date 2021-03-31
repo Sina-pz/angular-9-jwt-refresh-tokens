@@ -49,16 +49,16 @@ $header-font-xSmall: 24px;
 $header-font-Small: 28px;
 $header-font-medium: 32px;
 $header-font-large: 36px;
-$header-font-xlarge: 40px;
-$header-font-xxlarge: 44px;
+$header-font-x-large: 40px;
+$header-font-xx-large: 44px;
 
 $body-font-xxSmall: 9px;
 $body-font-xSmall: 10px;
 $body-font-Small: 13px;
 $body-font-medium: 16px;
 $body-font-large: 18px;
-$body-font-xlarge: 24px;
-$body-font-xxlarge: 32px;
+$body-font-x-large: 24px;
+$body-font-xx-large: 32px;
 
 $text-color-100:  rgb(0, 0, 0);
 $text-color-200: rgb(23, 43, 77);
@@ -76,7 +76,7 @@ $border-color-200: rgb(76, 154, 230);
 $border-color-300: #F8F8F9;
 
 .h1 {
-    font-size: $header-font-xlarge;
+    font-size: $header-font-x-large;
     font-family: $nv-font;
     font-weight: $font-weight-bold;
 }
