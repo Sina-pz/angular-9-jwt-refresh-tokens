@@ -77,8 +77,8 @@ function mockAvatarComponent() {
   const assignee = {
     id: 1,
     name: 'Sina pasha',
-     avatarUrl: 'https://www.nretnil.com/avatar/LawrenceEzekielAmos.png',
-    // avatarUrl: '',
+    // avatarUrl: 'https://www.nretnil.com/avatar/LawrenceEzekielAmos.png',
+     avatarUrl: '',
   } as Assignee;
   return assignee;
 }

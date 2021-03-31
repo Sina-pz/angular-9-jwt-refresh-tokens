@@ -1,27 +1,102 @@
+@import './../theme/base.scss';
+
+* {
+  box-sizing: border-box;
+  // makes sure that the padding and border are included in the total width and height of the elements.
+}
+
 .demo-page-container {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  
+  width: 100vh;
+  height: 100vh;
+  background-color: $Primary-0-000;
+  //   display: flex;
+  //   flex-direction: column;
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: $Accent-1-900;
+    color: white;
+    font-weight: $font-weight-large;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .novatek-logo {
+
+      width: 130px;
+      background-color: transparent;
+    }
+
+    .novatek-label {
+      margin-left: -40px;
+      font-size: $Font-size-large;
+      font-weight: $font-weight-large;
+      color: $Accent-2-900;
+    }
+
+    .demo-label {
+      padding-left: 25px;
+      font-size: $Font-size-large;
+      font-weight: $font-weight-medium;
+      color: $Primary-0-200 ;
+
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .twitter-logo {
+      padding-right: 20px;
+    }
+
+  }
+
+  .body {
+    position: relative;
     display: grid;
-    grid-template-columns: 300px 500px;
-    padding-top:10px;
-    background-color: rgb(190, 188, 188);
+    grid-template-columns: 400px 1fr;
+    border: 1px solid black;
 
     .side-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-        .menu-item {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: large;
-            font-weight: bold;
-            width: 50px;
-            height: 50px;
-            margin: 0 5px;
-        }
+      .menu-item {
+        position: relative;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: large;
+        font-weight: bold;
+        width: 50px;
+        height: 50px;
+        margin: 0 5px;
+      }
     }
 
     .preview-panel {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
+
+
+  }
+
+
+
+
+
+
+
+
 }
